@@ -2,7 +2,7 @@ import { FC } from "react";
 import "./Search.css";
 
 interface Props {
-    searchTerm: string | null;
+    searchTerm: string;
     onChange: (searchTerm: string) => void;
 }
 
@@ -16,7 +16,7 @@ export const Search: FC<Props> = ({ searchTerm, onChange }) => {
                 onChange={(event) => {
                     onChange(event.target.value);
                 }}
-                value={searchTerm ?? ""}
+                value={searchTerm}
             />
         </>
     );

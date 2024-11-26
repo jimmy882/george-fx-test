@@ -5,7 +5,7 @@ import { getFilteredItems } from "./CurrencyListService.ts";
 import "./CurrencyList.css";
 
 interface Props {
-    searchTerm: string | null;
+    searchTerm: string;
 }
 
 export const CurrencyList: FC<Props> = ({ searchTerm }) => {
