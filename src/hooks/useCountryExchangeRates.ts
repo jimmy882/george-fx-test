@@ -1,4 +1,4 @@
-import { useFetch } from "./useFetch.tsx";
+import { useFetch } from "./useFetch.ts";
 import {
     CountryInfoAPIResponse,
     EnrichedExchangeRate,

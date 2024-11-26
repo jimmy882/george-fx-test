@@ -1,11 +1,11 @@
 import { FC } from "react";
 import { CurrencyListItem } from "../CurrencyListItem/CurrencyListItem.tsx";
-import { useCountryExchangeRates } from "../../hooks/useCountryExchangeRates.tsx";
+import { useCountryExchangeRates } from "../../hooks/useCountryExchangeRates.ts";
 import { getFilteredItems } from "./CurrencyListService.ts";
 import "./CurrencyList.css";
 
 interface Props {
-    searchTerm: string;
+    searchTerm: string | null;
 }
 
 export const CurrencyList: FC<Props> = ({ searchTerm }) => {

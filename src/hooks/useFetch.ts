@@ -1,6 +1,12 @@
 import { useEffect, useState } from "react";
 
-export function useFetch<T>(url: string) {
+interface HookResult<T> {
+    data: T | null;
+    isLoading: boolean;
+    error: Error | null;
+}
+
+export function useFetch<T>(url: string): HookResult<T> {
     const [data, setData] = useState<T | null>(null);
     const [isLoading, setIsLoading] = useState<boolean>(true);
     const [error, setError] = useState<Error | null>(null);
