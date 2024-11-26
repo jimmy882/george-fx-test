@@ -1,5 +1,6 @@
 import { useLocation, useNavigate } from "react-router-dom";
 import { useCallback, useMemo } from "react";
+import { sanitizeInput } from "../utils/sanitizeInput.ts";
 
 type HookResult = [string | null, (value: string) => void];
 
@@ -14,10 +15,11 @@ export function useQueryParam(key: string): HookResult {
 
     const setQueryParam = useCallback(
         (value: string) => {
-            if (value) {
-                searchParams.set(key, value);
+            const sanitizedValue = sanitizeInput(value);
+            if (sanitizedValue) {
+                searchParams.set(key, sanitizedValue);
             }
-            if (!value) {
+            if (!sanitizedValue) {
                 searchParams.delete(key);
             }
             void navigate({ search: searchParams.toString() });
