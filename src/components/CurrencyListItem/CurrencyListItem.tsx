@@ -1,4 +1,6 @@
 import { FC } from "react";
+import "./CurrencyListItem.css";
+import { Flag } from "../Flag/Flag.tsx";
 
 interface Props {
     countryCode: string;
@@ -14,7 +16,7 @@ function formatExchangeRate(
     currency: string | undefined,
 ) {
     if (!rate || !currency) {
-        return "FX Rate unavailable";
+        return "Rate not available";
     }
     return `1 ${baseCurrency} = ${rate.toString()} ${currency}`;
 }
@@ -28,11 +30,11 @@ export const CurrencyListItem: FC<Props> = ({
 }) => {
     const formattedRate = formatExchangeRate(baseCurrency, rate, currency);
     return (
-        <div>
+        <li className="currency-list-item">
+            <Flag countryCode={countryCode} />
             <p>{country}</p>
-            <p>{countryCode}</p>
             <p>{currency}</p>
             <p>{formattedRate}</p>
-        </div>
+        </li>
     );
 };

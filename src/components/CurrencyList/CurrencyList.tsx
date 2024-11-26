@@ -2,6 +2,7 @@ import { FC } from "react";
 import { CurrencyListItem } from "../CurrencyListItem/CurrencyListItem.tsx";
 import { useCountryExchangeRates } from "../../hooks/useCountryExchangeRates.tsx";
 import { getFilteredItems } from "./CurrencyListService.ts";
+import "./CurrencyList.css";
 
 interface Props {
     searchTerm: string;
@@ -28,15 +29,18 @@ export const CurrencyList: FC<Props> = ({ searchTerm }) => {
     if (!filteredItems.length) {
         return <div>No data</div>;
     }
-
-    return filteredItems.map((item) => (
-        <CurrencyListItem
-            key={item.countryCode}
-            countryCode={item.countryCode}
-            country={item.countryName}
-            currency={item.currencyCode}
-            rate={item.rate}
-            baseCurrency={data.baseCurrency}
-        />
-    ));
+    return (
+        <ul className="currency-list">
+            {filteredItems.map((item) => (
+                <CurrencyListItem
+                    key={item.countryCode}
+                    countryCode={item.countryCode}
+                    country={item.countryName}
+                    currency={item.currencyCode}
+                    rate={item.rate}
+                    baseCurrency={data.baseCurrency}
+                />
+            ))}
+        </ul>
+    );
 };

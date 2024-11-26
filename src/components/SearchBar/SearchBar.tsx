@@ -7,7 +7,7 @@ interface Props {
 
 export const SearchBar: FC<Props> = ({ searchTerm, onChange }) => {
     return (
-        <div>
+        <>
             <label>Search</label>
             <input
                 type="text"
@@ -17,6 +17,6 @@ export const SearchBar: FC<Props> = ({ searchTerm, onChange }) => {
                 }}
                 value={searchTerm}
             />
-        </div>
+        </>
     );
 };
