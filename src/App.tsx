@@ -1,5 +1,5 @@
 import { Stripe } from "./components/Stripe/Stripe.tsx";
-import { SearchBar } from "./components/SearchBar/SearchBar.tsx";
+import { Search } from "./components/Search/Search.tsx";
 import { CurrencyList } from "./components/CurrencyList/CurrencyList.tsx";
 import { useQueryParam } from "./hooks/useQueryParam.ts";
 
@@ -9,7 +9,7 @@ function App() {
     return (
         <>
             <Stripe>
-                <SearchBar searchTerm={searchTerm} onChange={setSearchTerm} />
+                <Search searchTerm={searchTerm} onChange={setSearchTerm} />
             </Stripe>
             <CurrencyList searchTerm={searchTerm} />
         </>

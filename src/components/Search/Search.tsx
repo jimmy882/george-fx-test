@@ -1,11 +1,12 @@
 import { FC } from "react";
+import "./Search.css";
 
 interface Props {
     searchTerm: string | null;
     onChange: (searchTerm: string) => void;
 }
 
-export const SearchBar: FC<Props> = ({ searchTerm, onChange }) => {
+export const Search: FC<Props> = ({ searchTerm, onChange }) => {
     return (
         <>
             <label>Search</label>

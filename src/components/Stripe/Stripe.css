@@ -20,10 +20,4 @@
     position: fixed;
     top: 0;
     width: 860px;
-    /*max-width: 100vw;*/
-}
-
-.search-input {
-    border: 1px solid black;
-    margin: 0 10px;
 }
