@@ -4,3 +4,26 @@
     margin: 0;
     width: 100%;
 }
+
+.loading, .error, .no-data {
+    text-align: center;
+    padding: 20px;
+    font-size: 18px;
+    border-radius: 5px;
+    margin: 20px auto;
+}
+
+.loading {
+    background-color: #f0f8ff;
+    color: #0000ff;
+}
+
+.error {
+    background-color: #ffe6e6;
+    color: #ff0000;
+}
+
+.no-data {
+    background-color: #ffffe0;
+    color: #808080;
+}

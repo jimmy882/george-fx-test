@@ -12,13 +12,13 @@ export const CurrencyList: FC<Props> = ({ searchTerm }) => {
     const { data, isLoading, error } = useCountryExchangeRates();
 
     if (isLoading) {
-        return <div>Loading...</div>;
+        return <div className="loading">Loading...</div>;
     }
     if (error) {
-        return <div>Something went wrong</div>;
+        return <div className="error">Something went wrong</div>;
     }
     if (!data) {
-        return <div>No data</div>;
+        return <div className="no-data">No data</div>;
     }
 
     const filteredItems = getFilteredItems(
@@ -27,7 +27,7 @@ export const CurrencyList: FC<Props> = ({ searchTerm }) => {
     );
 
     if (!filteredItems.length) {
-        return <div>No data</div>;
+        return <div className="no-data">No data</div>;
     }
     return (
         <ul className="currency-list">
