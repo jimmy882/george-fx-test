@@ -9,8 +9,8 @@ interface FxRate {
     buy: number;
     middle: number;
     sell: number;
-    indicator: number;
-    lastModified: string;
+    indicator?: number;
+    lastModified?: string;
 }
 
 interface FxInfo {
@@ -29,7 +29,7 @@ export interface FxAPIResponse {
 
 interface CountryName {
     common: string;
-    official: string;
+    official?: string;
 }
 
 interface Currency {

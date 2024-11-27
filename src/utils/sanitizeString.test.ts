@@ -13,4 +13,10 @@ describe("sanitizeString", () => {
         const output = "ABC";
         expect(sanitizeString(input)).toBe(output);
     });
+
+    it("returns empty string", () => {
+        const input = null;
+        const output = "";
+        expect(sanitizeString(input)).toBe(output);
+    });
 });

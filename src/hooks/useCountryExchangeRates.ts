@@ -1,30 +1,6 @@
 import { useFetch } from "./useFetch.ts";
-import {
-    CountryInfoAPIResponse,
-    EnrichedExchangeRate,
-    FxAPIResponse,
-} from "../types";
-
-function getEnrichedExchangeRates(
-    countriesResponse: CountryInfoAPIResponse[],
-    fxResponse: FxAPIResponse,
-): EnrichedExchangeRate[] {
-    const filteredCountries = countriesResponse.filter((country) => {
-        return Object.keys(country.currencies).length > 0;
-    });
-    return filteredCountries.map((country) => {
-        const fxInfo = fxResponse.fx.find((fx) =>
-            Object.keys(country.currencies).includes(fx.currency),
-        );
-
-        return {
-            countryName: country.name.common,
-            countryCode: country.cca2,
-            currencyCode: Object.keys(country.currencies)[0],
-            rate: fxInfo?.exchangeRate?.middle,
-        };
-    });
-}
+import { CountryInfoAPIResponse, FxAPIResponse } from "../types";
+import { getEnrichedExchangeRates } from "../components/CurrencyList/CurrencyListService.ts";
 
 export function useCountryExchangeRates() {
     const {
