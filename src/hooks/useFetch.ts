@@ -6,17 +6,19 @@ interface HookResult<T> {
     error: Error | null;
 }
 
-export function useFetch<T>(url: string): HookResult<T> {
+export function useFetch<T>(
+    url: string,
+    fetchData: (url: string) => Promise<T>,
+): HookResult<T> {
     const [data, setData] = useState<T | null>(null);
     const [isLoading, setIsLoading] = useState<boolean>(true);
     const [error, setError] = useState<Error | null>(null);
 
     useEffect(() => {
-        const fetchData = async () => {
+        const setDataWithLoading = async () => {
             setIsLoading(true);
             try {
-                const response = await fetch(url);
-                const data = (await response.json()) as T;
+                const data = await fetchData(url);
                 setData(data);
                 setError(null);
             } catch (error) {
@@ -24,8 +26,8 @@ export function useFetch<T>(url: string): HookResult<T> {
             }
             setIsLoading(false);
         };
-        void fetchData();
-    }, [url]);
+        void setDataWithLoading();
+    }, [fetchData, url]);
 
     return { data, isLoading, error };
 }
